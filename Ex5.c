@@ -26,8 +26,7 @@ void main ()
     
     
     printf("Quantidade de valores no vetor Par:%d\n",quantP);
-    printf("Quantidade de valores no vetor Impar:%d\n
-    ",quantI);
+    printf("Quantidade de valores no vetor Impar:%d\n",quantI);
     
 }
 void  preencher (int vetorO[],int vetorP[],int vetorI[],int tamanho,int *quantP, int  *quantI)

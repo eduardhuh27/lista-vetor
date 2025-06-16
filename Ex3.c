@@ -43,15 +43,15 @@ int ordenacao (int vet[],int tamanho)
 
     return 1;
 }
-void exibir (int vetor[],int tamanho)
-{
-    
-    int i;
-    
-    printf("Valores do vetor:");
-    for (i=0;i<tamanho;i++)
+    void exibir (int vetor[],int tamanho)
     {
-        printf("%d ",vetor[i]);
+        
+        int i;
+        
+        printf("Valores do vetor:");
+        for (i=0;i<tamanho;i++)
+        {
+            printf("%d ",vetor[i]);
+        }
+        printf ("\n\n");
     }
-    printf ("\n\n");
-}
