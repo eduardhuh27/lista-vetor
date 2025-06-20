@@ -1,29 +1,42 @@
 #include <stdio.h>
 
-int inserir (float vetor[],int tamanho, float valor,int *ordem);
+int posicao (float vetor[],int tamanho, float valor,int *ordem, int quantidade);
 void exibir (float vetor[],int tamanho);
-
+int inserir (float vetror[],float valor,int *quantidade, int capacidade,int posicao);
 void main()
 {
-    int loc,ordem;
+    int loc,ordem,quantidade,capacidade,certo;
+    float valor;
+    float vetor[8] = {4.1,4.8,5.1,4.9,6.5,};
+    capacidade=8;
+    quantidade=5;
+    exibir (vetor,quantidade);    
     
-    float vetor[6] = {4.1,4.8,5.1,5.6,6.5};
+    printf("Entre com o valor para saber a sua posicao:");
+    scanf("%f",&valor);
     
-       
-    
-    printf("Entre com o valor a ser inserido:");
-    scanf("%f",&vetor[5]);
-    exibir (vetor,5); 
-    loc= inserir (vetor,5,vetor[5],&ordem);
-    /*if (ordem==0)
+    loc= posicao (vetor,quantidade,valor,&ordem,quantidade);
+    if (ordem==0)
     {
         printf("Esta em ordem\nPosicao do numero selecionado:%d",loc);
 
     }
     else
     {
-        printf("Esta fora de ordem\nPosicao do numero selecionado:%d",loc);    
-    }*/
+        printf("Esta fora de ordem\nPosicao do numero selecionado:%d\n\n",loc);  
+    }
+    
+   certo=inserir (vetor,valor, &quantidade,capacidade,loc);
+   exibir(vetor,quantidade);
+    if (certo==1)
+    {
+        printf("O numero foi inserido\n\n");
+
+    }
+    else
+    {
+        printf("O numero nao foi inserido\n\n");  
+    }
     }       
 void exibir (float vetor[],int tamanho)
 {
@@ -37,34 +50,70 @@ void exibir (float vetor[],int tamanho)
     }
     printf ("\n\n");
 }
-    int inserir (float vetor[],int tamanho, float valor,int *ordem)
+int posicao (float vetor[],int tamanho, float valor,int *ordem,int quantidade)
     {
-        int i,posi;
+        int i,local,cont=0;
         float temp;
         *ordem=0;
-        tamanho+=1;
+        
         for(i=0;i<tamanho;i++)
         {
             if(vetor[i]<vetor[i-1])
             {
                 temp=vetor[i-1];
-                exibir (vetor,6);
+                exibir (vetor,quantidade);
                 vetor[i-1]=vetor[i];
-                exibir (vetor,6);
+                exibir (vetor,quantidade);
                 vetor[i]=temp;
-                exibir (vetor,6);
+                exibir (vetor,quantidade);
                 i=0;
-                //*ordem=1;
+                *ordem=1;
+                i=0;
+                i=0;
             }
-            
-            if (vetor[i]>vetor[i-1])
+            else
             {
-                if(vetor[i]==valor)
+                if(vetor[i]>=valor)
                 {
-                    posi=i;
-                }
+                    cont++;
+                    if(cont==1)
+                    {
+                    local=i;
+                    }
+                    }
             }        
-              
         }
-     return posi;
+        if(local<tamanho)
+        {
+            return local;
+        }
+        else
+        {
+        return tamanho;
+        }
     }
+    
+int inserir (float vetor[], float valor, int *quantidade,int capacidade,int posicao)
+  {
+      int i;
+     if(*quantidade<capacidade) 
+    {
+        
+        for(i=*quantidade-1;i>=posicao;i--)
+        {
+            vetor[i+1]=vetor[i];
+        }
+
+vetor[posicao]=valor;
+        
+        (*quantidade)++;
+        
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+    
+      
+  }  

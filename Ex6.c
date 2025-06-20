@@ -44,7 +44,7 @@ void troca (int vetor[],int numA, int numB, /*int *quantTroca*/int tamanho)
     int i,j=0,k=0;
     
     for (i=0;i<tamanho;i++)
-    {
+    {   
         if (vetor[i]==numA)
         {
             vetor[i]=numB;

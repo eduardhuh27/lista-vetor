@@ -37,9 +37,9 @@ void exibir (float vetor[],int tamanho)
     }
     printf ("\n\n");
 }
-    int posicao (float vetor[],int tamanho, float valor,int *ordem)
+int posicao (float vetor[],int tamanho, float valor,int *ordem)
     {
-        int i,posi;
+        int i;
         float temp;
         *ordem=0;
         
@@ -58,12 +58,12 @@ void exibir (float vetor[],int tamanho)
             }
             if (vetor[i]>vetor[i-1])
             {
-                if(vetor[i]==valor)
+                if(vetor[i]>=valor)
                 {
-                    posi=i;
+                    return i;
                 }
             }        
-                
         }
-     return posi;
+        
+    return tamanho;
     }
