@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void troca (int vetor[],int numA, int numB, int *quantTroca,int tamanho);
+void troca (int vetor[],int numA, int numB,/* int *quantTroca,*/int tamanho);
 void exibir (int vetor[],int tamanho);
 void main()
 {
@@ -21,11 +21,11 @@ void main()
     }
     exibir (vetor,tamanho);
     
-    troca (vetor,numA,numB,&vezes,tamanho);
+    troca (vetor,numA,numB,/*&vezes,*/tamanho);
     
     exibir (vetor,tamanho);
     
-    printf("%d",vezes);
+    //printf("%d",vezes);
 }
 void exibir (int vetor[],int tamanho)
 {
@@ -39,24 +39,24 @@ void exibir (int vetor[],int tamanho)
     }
     printf ("\n\n");
 }
-void troca (int vetor[],int numA, int numB, int *quantTroca,int tamanho)
+void troca (int vetor[],int numA, int numB, /*int *quantTroca*/int tamanho)
 {
-    int i,j=100000,k=100000;
+    int i,j=0,k=0;
     
     for (i=0;i<tamanho;i++)
     {
         if (vetor[i]==numA)
         {
-            j=i;
+            vetor[i]=numB;
         }
-        if(vetor[i]==numB)
+        /*(vetor[i]==numB)
         {
             k=i;
-        }
+        }*/
     }
-        vetor[j]=numB;
-        vetor[k]=numA;
-        (*quantTroca)=1;
+        //vetor[j]=numB;
+        //vetor[k]=numA;
+        //(*quantTroca)=1;
         //printf("%d",vetor[j]);
         //printf("%d",vetor[k]);
 }
